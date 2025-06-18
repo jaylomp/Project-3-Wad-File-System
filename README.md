@@ -1,33 +1,40 @@
-WAD Filesystem (libWad + wadfs)
-COP4600 Project 3: File Systems
-Overview
+# WAD Filesystem (libWad + wadfs)  
+**COP4600 Project 3: File Systems**  
+
+---
+
+## Overview  
 This project implements a userspace filesystem daemon to access and manipulate WAD files — the classic game data archive format used in titles like DOOM. The goal is to provide full read and write access to files and directories within WAD archives, exposing them as a mounted filesystem using FUSE.
 
-Project Components
-libWad
-A C++ library that loads, parses, and manipulates WAD files, representing their internal structure as a hierarchical directory and file system.
+---
 
-wadfs
-A FUSE-based userspace daemon that mounts a WAD file as a virtual filesystem, exposing its contents with full read/write access to files and directories.
+## Project Components  
 
-Key Features
-Load and parse WAD files, including headers, descriptors, and lumps.
+- **libWad**  
+  A C++ library that loads, parses, and manipulates WAD files, representing their internal structure as a hierarchical directory and file system.
 
-Represent marker elements as directories:
+- **wadfs**  
+  A FUSE-based userspace daemon that mounts a WAD file as a virtual filesystem, exposing its contents with full read/write access to files and directories.
 
-Map markers (e.g., E1M1) are read-only directories containing fixed lumps.
+---
 
-Namespace markers (_START and _END pairs) define modifiable directories.
+## Key Features  
 
-Read and write file contents within the WAD.
+- Load and parse WAD files, including headers, descriptors, and lumps.  
+- Represent marker elements as directories:  
+  - **Map markers** (e.g., E1M1) are read-only directories containing fixed lumps.  
+  - **Namespace markers** (_START and _END pairs) define modifiable directories.  
+- Read and write file contents within the WAD.  
+- Create new directories and files inside namespace directories (not allowed inside map marker directories).  
+- Provide full read, write, and execute permissions on files and directories.  
+- Persist all changes across mounts.
 
-Create new directories and files inside namespace directories (not allowed inside map marker directories).
+---
 
-Provide full read, write, and execute permissions on files and directories.
+## Usage  
 
-Persist all changes across mounts.
-
-Usage:
+### Build  
+```bash
 tar zxvf wad.tar.gz
 cd libWad
 make
@@ -37,14 +44,20 @@ cd ..
 Run
 Mount a WAD file at a mount point:
 
-
+bash
+Copy
+Edit
 ./wadfs/wadfs -s somewadfile.wad /some/mount/directory
 Example:
 
-
+bash
+Copy
+Edit
 ./wadfs/wadfs -s TINY.WAD /home/reptilian/mountdir
 Example Commands after Mount
-
+bash
+Copy
+Edit
 ls /home/reptilian/mountdir/F/F1
 cat /home/reptilian/mountdir/F/F1/LOLWUT
 mkdir /home/reptilian/mountdir/F/NewDir
@@ -85,4 +98,5 @@ write — Write file data
 
 readdir — Read directory entries
 
-Author: Jaylom Pairol
+Author
+Jaylom Pairol
