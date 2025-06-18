@@ -41,28 +41,23 @@ make
 cd ../wadfs
 make
 cd ..
-Run
+```
+
+RUN
+
 Mount a WAD file at a mount point:
-
-bash
-Copy
-Edit
+```
 ./wadfs/wadfs -s somewadfile.wad /some/mount/directory
-Example:
-
-bash
-Copy
-Edit
-./wadfs/wadfs -s TINY.WAD /home/reptilian/mountdir
+```
 Example Commands after Mount
-bash
-Copy
-Edit
+```
 ls /home/reptilian/mountdir/F/F1
 cat /home/reptilian/mountdir/F/F1/LOLWUT
 mkdir /home/reptilian/mountdir/F/NewDir
 touch /home/reptilian/mountdir/F/NewFile
-Library API Highlights
+```
+Library Highlights
+```
 loadWad(const string &path) — Load WAD data into memory.
 
 isContent(const string &path) — Check if a path is a file.
@@ -78,6 +73,7 @@ createDirectory(const string &path) — Create a new namespace directory.
 createFile(const string &path) — Create a new empty file.
 
 writeToFile(const string &path, const char *buffer, int length, int offset = 0) — Write data to a file.
+```
 
 Implementation Notes
 Namespace directories are defined by pairs of _START and _END markers; new files and directories are inserted just before the parent directory’s _END marker.
@@ -98,5 +94,4 @@ write — Write file data
 
 readdir — Read directory entries
 
-Author
-Jaylom Pairol
+Author Jaylom Pairol
