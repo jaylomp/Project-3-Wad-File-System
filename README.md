@@ -1,7 +1,5 @@
 WAD Filesystem (libWad + wadfs)
 COP4600 Project 3: File Systems
-Author: Jaylom Pairol
-
 Overview
 This project implements a userspace filesystem daemon to access and manipulate WAD files — the classic game data archive format used in titles like DOOM. The goal is to provide full read and write access to files and directories within WAD archives, exposing them as a mounted filesystem using FUSE.
 
@@ -96,3 +94,5 @@ read — Read file data
 write — Write file data
 
 readdir — Read directory entries
+
+Author: Jaylom Pairol
