@@ -27,11 +27,7 @@ Provide full read, write, and execute permissions on files and directories.
 
 Persist all changes across mounts.
 
-Usage
-Build
-bash
-Copy
-Edit
+Usage:
 tar zxvf wad.tar.gz
 cd libWad
 make
@@ -41,20 +37,14 @@ cd ..
 Run
 Mount a WAD file at a mount point:
 
-bash
-Copy
-Edit
+
 ./wadfs/wadfs -s somewadfile.wad /some/mount/directory
 Example:
 
-bash
-Copy
-Edit
+
 ./wadfs/wadfs -s TINY.WAD /home/reptilian/mountdir
 Example Commands after Mount
-bash
-Copy
-Edit
+
 ls /home/reptilian/mountdir/F/F1
 cat /home/reptilian/mountdir/F/F1/LOLWUT
 mkdir /home/reptilian/mountdir/F/NewDir
